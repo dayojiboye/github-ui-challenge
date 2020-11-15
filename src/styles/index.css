@@ -1,0 +1,338 @@
+header {
+  width: 100%;
+  background: #24292e;
+  height: 60px;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+header nav .hamburger button {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  outline: none;
+  color: white;
+  font-size: 1.5rem;
+  display: none;
+}
+
+header nav .git-logo a {
+  color: white;
+}
+
+header nav .git-logo a:hover {
+  color: #ccc;
+}
+
+header nav .git-logo a [data-icon='octicon:mark-github-16'] {
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+header nav ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+  height: 100%;
+  margin-left: 1rem;
+}
+
+header nav ul li {
+  margin-right: 1rem;
+}
+
+header nav ul li input {
+  background: url('../assets/icons/search-key-slash.svg');
+  background-size: 19px;
+  background-repeat: no-repeat;
+  background-position: 96% 5px;
+  width: 272px;
+  padding: 0.3rem 0.72rem;
+  border: 1px solid #444d56;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: white;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+header nav ul li input::-webkit-input-placeholder {
+  color: #bdbec0;
+  font-size: 0.89rem;
+}
+
+header nav ul li input:-ms-input-placeholder {
+  color: #bdbec0;
+  font-size: 0.89rem;
+}
+
+header nav ul li input::-ms-input-placeholder {
+  color: #bdbec0;
+  font-size: 0.89rem;
+}
+
+header nav ul li input::placeholder {
+  color: #bdbec0;
+  font-size: 0.89rem;
+}
+
+header nav ul li.dashboard-nav-item,
+header nav ul li.profile-nav-item,
+header nav ul li.sign-out {
+  display: none;
+}
+
+header nav ul li > a {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+header nav ul li > a:hover {
+  color: #ccc;
+}
+
+header nav ul li > a .letter-s {
+  display: none;
+}
+
+header nav .nav-end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: auto;
+}
+
+header nav .nav-end .notification {
+  margin-right: 0.85rem;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+header nav .nav-end .notification:hover {
+  color: #ccc;
+}
+
+header nav .nav-end .notification [data-icon='octicon:bell-16'] {
+  vertical-align: middle;
+}
+
+header nav .nav-end .new-repo {
+  margin-right: 0.85rem;
+}
+
+header nav .nav-end .new-repo button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: whitesmoke;
+  cursor: pointer;
+  outline: none;
+}
+
+header nav .nav-end .new-repo button:hover {
+  color: #ccc;
+}
+
+header nav .nav-end .new-repo button [data-icon='octicon:plus-24'] {
+  font-size: 1.3rem;
+  vertical-align: middle;
+}
+
+header nav .nav-end .header-profile button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: whitesmoke;
+  cursor: pointer;
+  outline: none;
+}
+
+header nav .nav-end .header-profile button:hover {
+  color: #ccc;
+}
+
+header nav .nav-end .header-profile button > img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+header nav .nav-end .caret-down {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  color: inherit;
+  vertical-align: middle;
+  content: '';
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-bottom: 0 solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+
+@media (max-width: 767px) {
+  header nav {
+    padding: 0 1rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto auto;
+    grid-template-columns: auto auto auto;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+  }
+  header nav .hamburger button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  header nav ul {
+    background: #24292e;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0.75rem 1rem 1rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+  header nav ul.show {
+    display: initial;
+  }
+  header nav ul li {
+    margin-right: 0;
+    width: 100%;
+    border-bottom: 1px solid #444d56;
+    padding: 0.5rem 0;
+  }
+  header nav ul li > a {
+    display: block;
+  }
+  header nav ul li:nth-child(1) {
+    padding: 0 0 1rem;
+  }
+  header nav ul li:last-child {
+    border-bottom: 0;
+  }
+  header nav ul li input {
+    width: 100%;
+  }
+  header nav ul li.dashboard-nav-item,
+  header nav ul li.profile-nav-item,
+  header nav ul li.sign-out {
+    display: block;
+  }
+  header nav ul li.profile-nav-item img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  header nav ul li.sign-out button {
+    background: transparent;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  header nav ul li.sign-out button:hover {
+    color: #ccc;
+  }
+  header nav ul li.sign-out button [data-icon='octicon:sign-out-24'] {
+    font-size: 1rem;
+    margin-right: 0.3rem;
+  }
+  header nav .nav-end .notification {
+    margin-right: 0;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  header nav .nav-end .new-repo,
+  header nav .nav-end .header-profile {
+    display: none;
+  }
+}
+
+@media (max-width: 1011px) and (min-width: 768px) {
+  header nav {
+    padding: 0 1.5rem;
+  }
+  header nav ul li input {
+    width: 258px;
+  }
+  header nav ul li > a .letter-s {
+    display: initial;
+  }
+  header nav ul li > a .word {
+    display: none;
+  }
+}
+
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+/*# sourceMappingURL=index.css.map */
