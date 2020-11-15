@@ -200,6 +200,10 @@ header {
         left: 0;
         right: 0;
 
+        &.show {
+          display: initial;
+        }
+
         li {
           margin-right: 0;
           width: $full;

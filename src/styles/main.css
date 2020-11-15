@@ -226,6 +226,9 @@ header nav .nav-end .caret-down {
     left: 0;
     right: 0;
   }
+  header nav ul.show {
+    display: initial;
+  }
   header nav ul li {
     margin-right: 0;
     width: 100%;
