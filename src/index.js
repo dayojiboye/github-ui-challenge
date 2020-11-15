@@ -1,4 +1,4 @@
-import './main.css';
+import './styles/main.css';
 
 const headerAvatar = document
   .querySelector('.header-profile')

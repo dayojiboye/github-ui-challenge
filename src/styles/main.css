@@ -1,28 +1,3 @@
-*,
-::before,
-::after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-    sans-serif, Apple Color Emoji, Segoe UI Emoji;
-}
-
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  height: 100%;
-}
-
-a {
-  text-decoration: none;
-}
-
 header {
   width: 100%;
   background: #24292e;
@@ -34,8 +9,8 @@ header nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
   padding: 0 2rem;
 }
@@ -69,8 +44,8 @@ header nav ul {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0;
   height: 100%;
   margin-left: 1rem;
@@ -81,7 +56,7 @@ header nav ul li {
 }
 
 header nav ul li input {
-  background: url('./assets/icons/search-key-slash.svg');
+  background: url("../assets/icons/search-key-slash.svg");
   background-size: 19px;
   background-repeat: no-repeat;
   background-position: 96% 5px;
@@ -94,8 +69,8 @@ header nav ul li input {
   color: white;
   outline: none;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 header nav ul li input::-webkit-input-placeholder {
@@ -118,9 +93,7 @@ header nav ul li input::placeholder {
   font-size: 0.89rem;
 }
 
-header nav ul li.dashboard-nav-item,
-header nav ul li.profile-nav-item,
-header nav ul li.sign-out {
+header nav ul li.dashboard-nav-item, header nav ul li.profile-nav-item, header nav ul li.sign-out {
   display: none;
 }
 
@@ -143,8 +116,8 @@ header nav .nav-end {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-left: auto;
 }
 
@@ -224,10 +197,10 @@ header nav .nav-end .caret-down {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: auto auto auto;
-    grid-template-columns: auto auto auto;
+        grid-template-columns: auto auto auto;
     -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     position: relative;
   }
   header nav .hamburger button {
@@ -243,19 +216,15 @@ header nav .nav-end .caret-down {
     padding: 0.75rem 1rem 1rem;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     position: absolute;
     top: 50px;
     left: 0;
     right: 0;
-    display: none;
-  }
-  header nav ul.show {
-    display: initial;
   }
   header nav ul li {
     margin-right: 0;
@@ -275,9 +244,7 @@ header nav .nav-end .caret-down {
   header nav ul li input {
     width: 100%;
   }
-  header nav ul li.dashboard-nav-item,
-  header nav ul li.profile-nav-item,
-  header nav ul li.sign-out {
+  header nav ul li.dashboard-nav-item, header nav ul li.profile-nav-item, header nav ul li.sign-out {
     display: block;
   }
   header nav ul li.profile-nav-item img {
@@ -299,8 +266,8 @@ header nav .nav-end .caret-down {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   header nav ul li.sign-out button:hover {
     color: #ccc;
@@ -335,3 +302,28 @@ header nav .nav-end .caret-down {
     display: none;
   }
 }
+
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+/*# sourceMappingURL=main.css.map */
