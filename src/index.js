@@ -1,3 +1,5 @@
+import './main.css';
+
 const headerAvatar = document
   .querySelector('.header-profile')
   .querySelector('img');
