@@ -10,6 +10,11 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'build'),
   },
   module: {
-    rules: [],
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
 });

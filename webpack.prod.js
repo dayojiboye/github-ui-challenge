@@ -2,6 +2,8 @@ const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
@@ -16,10 +18,21 @@ module.exports = merge(common, {
     contentBase: './build',
   },
   optimization: {
-    minimizer: [new TerserPlugin()],
+    minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
+    new CleanWebpackPlugin(),
+  ],
   module: {
-    rules: [],
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader, // 2. Extract CSS into files
+          'css-loader', // 1. Turns css into commonjs
+        ],
+      },
+    ],
   },
 });
