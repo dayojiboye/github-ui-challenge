@@ -225,6 +225,7 @@ header nav .nav-end .caret-down {
     top: 50px;
     left: 0;
     right: 0;
+    display: none;
   }
   header nav ul.show {
     display: initial;
