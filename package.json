@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --open",
-    "build": "node ./scripts/create-env.js && webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js"
   },
   "author": "Dayo Jiboye",
   "license": "ISC",
@@ -23,6 +23,6 @@
     "webpack-merge": "^5.4.0"
   },
   "dependencies": {
-    "dotenv-webpack": "^5.1.0"
+    "dotenv-webpack": "^1.7.0"
   }
 }
