@@ -16,13 +16,11 @@ const hamburger = document.querySelector('.hamburger').querySelector('button');
 
 const navItems = document.getElementById('nav-items');
 
-const api_key = process.env.API_KEY;
-
 fetch('https://api.github.com/graphql', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    authorization: 'Bearer ' + api_key,
+    authorization: 'Bearer ' + process.env.API_KEY,
   },
   body: JSON.stringify({
     query: `
