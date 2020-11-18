@@ -362,7 +362,7 @@ header nav .nav-end .caret-down {
 }
 
 .sticky-tab .tab-menu > nav {
-  width: 670px;
+  width: 700px;
   height: 100%;
   margin: 0 auto;
   padding: 0;
@@ -382,10 +382,6 @@ header nav .nav-end .caret-down {
   border-bottom-color: transparent;
   -webkit-transition: border-bottom-color 0.4s ease-in-out;
   transition: border-bottom-color 0.4s ease-in-out;
-}
-
-.sticky-tab .tab-menu > nav a:nth-child(1) {
-  padding-left: 0;
 }
 
 .sticky-tab .tab-menu > nav a:hover {
@@ -428,7 +424,7 @@ header nav .nav-end .caret-down {
         grid-template-columns: 160px 1fr;
   }
   .sticky-tab .tab-menu > nav {
-    width: 87%;
+    width: 93%;
   }
 }
 

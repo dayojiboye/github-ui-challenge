@@ -171,5 +171,3 @@ hamburger.addEventListener('click', (e) => {
 window.addEventListener('scroll', () => {
   isInViewport(profileAvatar);
 });
-
-// work on the threshold/root margin of the observer

@@ -33,9 +33,16 @@ module.exports = merge(common, {
           'css-loader', // 1. Turns css into commonjs
         ],
       },
+      // {
+      //   test: /\.svg/,
+      //   use: ['svg-url-loader'],
+      // },
       {
         test: /\.svg/,
-        use: ['svg-url-loader'],
+        use: {
+          loader: 'svg-url-loader',
+          options: {},
+        },
       },
     ],
   },

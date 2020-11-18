@@ -41,7 +41,7 @@
     width: $full;
 
     > nav {
-      width: 670px;
+      width: 700px;
       height: $full;
       margin: 0 auto;
       padding: 0;
@@ -58,9 +58,9 @@
         border-bottom-color: transparent;
         transition: border-bottom-color 0.4s ease-in-out;
 
-        &:nth-child(1) {
-          padding-left: 0;
-        }
+        // &:nth-child(1) {
+        //   padding-left: 0;
+        // }
 
         &:hover {
           border-bottom: 2px solid $fade;
@@ -106,7 +106,7 @@
 
     .tab-menu {
       > nav {
-        width: 87%;
+        width: 93%;
       }
     }
   }
