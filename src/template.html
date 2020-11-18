@@ -15,6 +15,9 @@
         <div class="hamburger">
           <button
             type="button"
+            data-toggle="collapse"
+            data-target="#nav-items"
+            aria-controls="nav-items"
             aria-label="Toggle navigation"
             aria-expanded="false"
           >
@@ -82,5 +85,87 @@
         </div>
       </nav>
     </header>
+
+    <main>
+      <div class="sticky-tab">
+        <div class="tab-image">
+          <img src="" alt="" />
+          <span class="tab-user"></span>
+        </div>
+
+        <div class="tab-menu">
+          <nav>
+            <a href="/"
+              ><iconify-icon
+                data-icon="octicon:book-16"
+                class="menu-icon"
+              ></iconify-icon>
+              Overview</a
+            >
+            <a href="/" data-active-tab="active"
+              ><iconify-icon
+                data-icon="octicon:repo-16"
+                class="menu-icon"
+              ></iconify-icon>
+              Repositories <span class="repo-count"></span
+            ></a>
+            <a href="/"
+              ><iconify-icon
+                data-icon="octicon:project-16"
+                class="menu-icon"
+              ></iconify-icon>
+              Projects</a
+            >
+            <a href="/"
+              ><iconify-icon
+                data-icon="octicon:package-16"
+                class="menu-icon"
+              ></iconify-icon>
+              Packages</a
+            >
+          </nav>
+        </div>
+      </div>
+
+      <div class="profile-repos">
+        <div class="profile">
+          <div class="profile-info">
+            <div class="profile-avatar">
+              <img src="" alt="" />
+
+              <div class="profile-status">
+                <button>
+                  <iconify-icon data-icon="octicon:smiley-16"></iconify-icon>
+                </button>
+              </div>
+            </div>
+
+            <div class="profile-name">
+              <span class="full-name"></span>
+              <span class="nickname"></span>
+            </div>
+          </div>
+
+          <div class="profile-bio">
+            <span class="about"></span>
+          </div>
+        </div>
+
+        <div class="repos">
+          <div class="search-repo">
+            <input type="search" placeholder="Find a repository..." />
+          </div>
+
+          <div class="repos-list">
+            <ul id="list-of-repos"></ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/@github/time-elements@latest?module"
+    ></script>
   </body>
 </html>

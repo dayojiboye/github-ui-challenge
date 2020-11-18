@@ -2,7 +2,7 @@
 
 header {
   width: $full;
-  background: $headerBg;
+  background: $black;
   height: 60px;
 
   nav {
@@ -57,7 +57,7 @@ header {
           width: 272px;
           padding: 0.3rem 0.72rem;
           border: 1px solid #444d56;
-          border-radius: 6px;
+          border-radius: $borderRadius;
           font-family: inherit;
           font-size: 1rem;
           color: $white;
@@ -188,7 +188,7 @@ header {
       }
 
       ul {
-        background: $headerBg;
+        background: $black;
         width: $full;
         height: auto;
         margin: 0;
