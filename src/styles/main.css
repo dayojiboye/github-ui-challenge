@@ -624,7 +624,7 @@ header nav .nav-end .caret-down {
 
 .profile-column .profile .mobile-profile-status > button > span {
   font-size: 0.75rem;
-  margin-left: 0.2rem;
+  margin-left: 0.45rem;
   vertical-align: middle;
 }
 
@@ -874,7 +874,10 @@ header nav .nav-end .caret-down {
 }
 
 @media (max-width: 295px) {
-  .repos {
+  .search-repo {
+    padding: 1rem 0.5rem !important;
+  }
+  .repos-list {
     padding: 0 0.5rem !important;
   }
 }
@@ -882,10 +885,15 @@ header nav .nav-end .caret-down {
 @media (max-width: 767px) {
   .repos {
     width: 100%;
-    padding: 0 1rem;
   }
-  .repos .repo-info .repo-rate,
-  .repos .repo-info .repo-forks {
+  .repos .search-repo {
+    padding: 1rem;
+  }
+  .repos .repos-list {
+    padding: 0 0.5rem 0 1rem;
+  }
+  .repos .repos-list .repo-info .repo-rate,
+  .repos .repos-list .repo-info .repo-forks {
     display: none !important;
   }
 }

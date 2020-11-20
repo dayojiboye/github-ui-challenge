@@ -160,7 +160,11 @@
 }
 
 @media (max-width: 295px) {
-  .repos {
+  .search-repo {
+    padding: 1rem 0.5rem !important;
+  }
+
+  .repos-list {
     padding: 0 0.5rem !important;
   }
 }
@@ -168,12 +172,19 @@
 @media (max-width: 767px) {
   .repos {
     width: $full;
-    padding: 0 1rem;
 
-    .repo-info {
-      .repo-rate,
-      .repo-forks {
-        display: none !important;
+    .search-repo {
+      padding: 1rem;
+    }
+
+    .repos-list {
+      padding: 0 0.5rem 0 1rem;
+
+      .repo-info {
+        .repo-rate,
+        .repo-forks {
+          display: none !important;
+        }
       }
     }
   }
