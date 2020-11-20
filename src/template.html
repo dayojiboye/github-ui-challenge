@@ -58,7 +58,7 @@
           </li>
           <li class="sign-out">
             <button>
-              <iconify-icon data-icon="octicon:sign-out-24"></iconify-icon> Sign
+              <iconify-icon data-icon="octicon:sign-out-16"></iconify-icon> Sign
               out
             </button>
           </li>
@@ -88,66 +88,117 @@
 
     <main>
       <div class="sticky-tab">
-        <div class="tab-image">
-          <img src="" alt="" />
-          <span class="tab-user"></span>
-        </div>
+        <div class="tab-wrapper">
+          <div class="tab-image">
+            <img src="" alt="" />
+            <span class="tab-user"></span>
+          </div>
 
-        <div class="tab-menu">
-          <nav>
-            <a href="/"
-              ><iconify-icon
-                data-icon="octicon:book-16"
-                class="menu-icon"
-              ></iconify-icon>
-              Overview</a
-            >
-            <a href="/" data-active-tab="active"
-              ><iconify-icon
-                data-icon="octicon:repo-16"
-                class="menu-icon"
-              ></iconify-icon>
-              Repositories <span class="repo-count"></span
-            ></a>
-            <a href="/"
-              ><iconify-icon
-                data-icon="octicon:project-16"
-                class="menu-icon"
-              ></iconify-icon>
-              Projects</a
-            >
-            <a href="/"
-              ><iconify-icon
-                data-icon="octicon:package-16"
-                class="menu-icon"
-              ></iconify-icon>
-              Packages</a
-            >
-          </nav>
+          <div class="tab-menu">
+            <nav>
+              <a href="/"
+                ><iconify-icon
+                  data-icon="octicon:book-16"
+                  class="menu-icon"
+                ></iconify-icon>
+                Overview</a
+              >
+              <a href="/" data-active-tab="active"
+                ><iconify-icon
+                  data-icon="octicon:repo-16"
+                  class="menu-icon"
+                ></iconify-icon>
+                Repositories <span class="repo-count"></span
+              ></a>
+              <a href="/"
+                ><iconify-icon
+                  data-icon="octicon:project-16"
+                  class="menu-icon"
+                ></iconify-icon>
+                Projects</a
+              >
+              <a href="/"
+                ><iconify-icon
+                  data-icon="octicon:package-16"
+                  class="menu-icon"
+                ></iconify-icon>
+                Packages</a
+              >
+            </nav>
+          </div>
         </div>
       </div>
 
-      <div class="profile-repos">
-        <div class="profile">
-          <div class="profile-info">
-            <div class="profile-avatar">
-              <img src="" alt="" />
+      <div class="wrapper">
+        <div class="profile-column">
+          <div class="profile">
+            <div class="profile-info">
+              <div class="profile-avatar">
+                <img src="" alt="" />
 
-              <div class="profile-status">
-                <button>
-                  <iconify-icon data-icon="octicon:smiley-16"></iconify-icon>
-                </button>
+                <div class="profile-status">
+                  <button>
+                    <iconify-icon data-icon="octicon:smiley-16"></iconify-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="profile-name">
+                <h1>
+                  <span class="full-name"></span>
+                  <span class="nickname"></span>
+                </h1>
               </div>
             </div>
 
-            <div class="profile-name">
-              <span class="full-name"></span>
-              <span class="nickname"></span>
+            <div class="mobile-profile-status">
+              <button>
+                <iconify-icon
+                  data-icon="octicon:smiley-16"
+                  class="icon"
+                ></iconify-icon>
+                <span>Set status</span>
+              </button>
+            </div>
+
+            <div class="profile-bio">
+              <span class="about"></span>
             </div>
           </div>
+        </div>
 
-          <div class="profile-bio">
-            <span class="about"></span>
+        <div class="mobile-sticky-tab">
+          <div class="mobile-sticky-tab-wrapper">
+            <nav>
+              <a href="/"
+                ><iconify-icon
+                  data-icon="octicon:book-16"
+                  class="menu-icon"
+                ></iconify-icon>
+                Overview</a
+              >
+              <a href="/" data-active-tab="active"
+                ><iconify-icon
+                  data-icon="octicon:repo-16"
+                  class="menu-icon"
+                ></iconify-icon>
+                Repositories <span class="repo-count"></span
+              ></a>
+              <a href="/"
+                ><iconify-icon
+                  data-icon="octicon:project-16"
+                  class="menu-icon"
+                ></iconify-icon>
+                Projects</a
+              >
+              <a href="/"
+                ><iconify-icon
+                  data-icon="octicon:package-16"
+                  class="menu-icon"
+                ></iconify-icon>
+                Packages</a
+              >
+            </nav>
           </div>
         </div>
 

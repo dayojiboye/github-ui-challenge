@@ -1,0 +1,178 @@
+@import '../variables/variables';
+
+.profile-column {
+  white-space: nowrap;
+  flex: 1;
+
+  .profile {
+    width: $full;
+    position: relative;
+    top: -30px;
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+
+      .profile-avatar {
+        margin-bottom: 0.7rem;
+        position: relative;
+        z-index: 210;
+        width: 93%;
+        max-width: 280px;
+
+        > img {
+          width: $full;
+          height: auto;
+          border-radius: 50%;
+        }
+
+        .profile-status {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          z-index: 130;
+          margin: 0 0 2.2rem -2.5rem;
+          display: none;
+
+          button {
+            background: $white;
+            padding: 0;
+            width: 37px;
+            height: 37px;
+            border: 1px solid $borderFade;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: $secondary;
+            outline: none;
+            cursor: pointer;
+
+            &:hover {
+              color: $linkPrimary;
+            }
+          }
+        }
+      }
+
+      .profile-name {
+        width: $full;
+
+        > h1 {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          font-weight: lighter;
+
+          .full-name {
+            font-size: 1.625rem;
+            font-weight: 600;
+            color: $black;
+          }
+
+          .nickname {
+            font-size: 1.25rem;
+            color: $secondary;
+            line-height: 1;
+          }
+        }
+      }
+    }
+
+    .mobile-profile-status {
+      display: none;
+      margin: 1rem 0 0.7rem;
+
+      > button {
+        background: $white;
+        padding: 0.5rem;
+        width: $full;
+        border: 1px solid $borderFade;
+        border-radius: $borderRadius;
+        text-align: left;
+        font-size: 1rem;
+        font-family: inherit;
+        color: $secondary;
+        outline: none;
+        cursor: pointer;
+
+        &:hover {
+          color: $linkPrimary;
+        }
+
+        > .icon {
+          vertical-align: middle;
+        }
+
+        > span {
+          font-size: 0.75rem;
+          margin-left: 0.2rem;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .profile-bio {
+      width: $full;
+      margin-top: 1.2rem;
+
+      .about {
+        color: $black;
+      }
+    }
+  }
+}
+
+@media (max-width: 295px) {
+  .profile-column {
+    padding: 0 0.5rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .profile-column {
+    width: $full;
+    padding: 0 1rem;
+
+    .profile {
+      top: 0;
+
+      .profile-info {
+        flex-direction: row;
+        align-items: center;
+
+        .profile-avatar {
+          max-width: 15vw;
+          min-width: 10px;
+          z-index: 0;
+          margin-bottom: 0;
+
+          .profile-status {
+            display: none !important;
+          }
+        }
+
+        .profile-name {
+          margin-left: 1.5rem;
+
+          .full-name {
+            line-height: 0.9 !important;
+          }
+
+          .nickname {
+            line-height: 1.5 !important;
+          }
+        }
+      }
+
+      .mobile-profile-status {
+        display: block;
+      }
+
+      .profile-bio {
+        margin-top: 0;
+      }
+    }
+  }
+}

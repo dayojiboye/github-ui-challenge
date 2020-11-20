@@ -16,11 +16,13 @@ const tabImage = document.querySelector('.tab-image');
 
 const tabUser = document.querySelector('.tab-user');
 
+const main = document.querySelector('main');
+
 const hamburger = document.querySelector('.hamburger').querySelector('button');
 
 const navItems = document.getElementById('nav-items');
 
-const count = document.querySelector('.repo-count');
+const counts = document.querySelectorAll('.repo-count');
 
 const fullName = document.querySelector('.full-name');
 
@@ -81,7 +83,11 @@ fetch('https://api.github.com/graphql', {
     nickName.textContent = data.user.login;
     profileBio.textContent = data.user.bio;
     tabUser.textContent = data.user.login;
-    count.textContent = data.user.repositories.totalCount;
+    
+    counts.forEach((count) => {
+      count.textContent = data.user.repositories.totalCount;
+    });
+
     profileStatus.style.display = 'block';
 
     data.user.repositories.nodes.reverse().forEach((repo) => {
@@ -89,7 +95,11 @@ fetch('https://api.github.com/graphql', {
       repoListItem.innerHTML = `
     <div class="repo-info">
     <div class="info">
-      <a href="/">${repo.name}</a>
+      <div class="repo-name">
+        <h3>
+          <a href="/">${repo.name}</a>
+        </h3>
+      </div>
 
       <div class="repo-desc">
         <p>${repo.shortDescriptionHTML}</p>
@@ -166,6 +176,7 @@ hamburger.addEventListener('click', (e) => {
   }
   e.currentTarget.setAttribute('aria-expanded', isExpanded);
   navItems.classList.toggle('show');
+  main.classList.toggle('push');
 });
 
 window.addEventListener('scroll', () => {

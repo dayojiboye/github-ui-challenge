@@ -15,10 +15,6 @@ module.exports = merge(common, {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
-      // {
-      //   test: /\.svg/,
-      //   use: ['svg-url-loader'],
-      // },
       {
         test: /\.svg/,
         use: {

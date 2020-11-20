@@ -1,7 +1,8 @@
 @import './variables/variables';
 @import './header/header';
 @import './stickyTab/stickyTab';
-@import './profile-repos/profile-repos';
+@import './profile/profile';
+@import './repos/repos';
 
 *,
 ::before,
@@ -31,8 +32,36 @@ a {
 main {
   width: $full;
   height: $full;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto 1fr;
+  margin-bottom: 3rem;
+  // display: grid;
+
+  > .wrapper {
+    display: flex;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  main {
+    &.push {
+      margin-top: 338px;
+    }
+
+    > .wrapper {
+      flex-direction: column;
+      margin: 0;
+      width: $full;
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 1011px) and (min-width: 768px) {
+  main {
+    > .wrapper {
+      padding: 0 1.5rem;
+    }
+  }
 }
