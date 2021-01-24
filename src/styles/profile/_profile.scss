@@ -28,29 +28,57 @@
 
         .profile-status {
           position: absolute;
-          bottom: 0;
-          right: 0;
+          bottom: 10%;
+          left: 97%;
           z-index: 130;
-          margin: 0 0 2.2rem -2.5rem;
+          margin: 0 0 0 -2.5rem;
           display: none;
 
           button {
             background: $white;
             padding: 0;
-            width: 37px;
-            height: 37px;
+            max-width: 40px;
+            height: 40px;
             border: 1px solid $borderFade;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 100vh;
+            overflow: hidden;
             font-size: 1rem;
-            color: $secondary;
             outline: none;
             cursor: pointer;
 
+            .btn-inner-wrap {
+              display: flex;
+              align-items: center;
+              overflow: hidden;
+              color: $secondary;
+
+              &:hover {
+                color: $linkPrimary;
+              }
+            }
+
             &:hover {
-              color: $linkPrimary;
+              max-width: initial;
+              box-shadow: $boxShadow;
+
+              .status-text {
+                opacity: 1;
+                margin-right: 13px;
+              }
+            }
+
+            .status-icon {
+              width: 37px;
+              flex: 0 0 auto;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .status-text {
+              opacity: 0;
+              white-space: nowrap;
+              font-size: 0.75rem;
             }
           }
         }
@@ -75,6 +103,7 @@
             font-size: 1.25rem;
             color: $secondary;
             line-height: 1;
+            font-weight: 400;
           }
         }
       }
@@ -83,6 +112,7 @@
     .mobile-profile-status {
       display: none;
       margin: 1rem 0 0.7rem;
+      width: $full;
 
       > button {
         background: $white;
@@ -94,6 +124,8 @@
         font-size: 1rem;
         font-family: inherit;
         color: $secondary;
+        display: flex;
+        align-items: center;
         outline: none;
         cursor: pointer;
 
@@ -101,14 +133,13 @@
           color: $linkPrimary;
         }
 
-        > .icon {
-          vertical-align: middle;
+        .mobile-status-icon {
+          display: flex;
         }
 
-        > span {
+        .mobile-status-text {
           font-size: 0.75rem;
           margin-left: 0.45rem;
-          vertical-align: middle;
         }
       }
     }
@@ -144,7 +175,7 @@
 
         .profile-avatar {
           max-width: 15vw;
-          min-width: 10px;
+          min-width: 50px;
           z-index: 0;
           margin-bottom: 0;
 

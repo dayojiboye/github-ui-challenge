@@ -1,36 +1,44 @@
 import './styles/main.css';
 
-const images = document.querySelectorAll('img');
+const IMAGES = document.querySelectorAll('img');
 
-const navbarProfileName = document
-  .querySelector('.profile-nav-item')
-  .querySelector('span');
+const GIT_USER_NAME = document.querySelectorAll('.git-user-login-name');
 
-const profileAvatar = document.querySelector('.profile-avatar');
+const PROFILE_AVATAR = document.querySelector('.profile-avatar');
 
-const profileName = document.querySelector('.profile-name');
+const PROFILE_NAME = document.querySelector('.profile-name');
 
-const profileStatus = document.querySelector('.profile-status');
+const PROFILE_STATUS = document.querySelector('.profile-status');
 
-const tabImage = document.querySelector('.tab-image');
+const TAB_IMAGE = document.querySelector('.tab-image');
 
-const tabUser = document.querySelector('.tab-user');
+const MAIN = document.querySelector('main');
 
-const main = document.querySelector('main');
+const HAMBURGER = document.querySelector('.hamburger').querySelector('button');
 
-const hamburger = document.querySelector('.hamburger').querySelector('button');
+const NAV_ITEMS = document.getElementById('nav-items');
 
-const navItems = document.getElementById('nav-items');
+const COUNTS = document.querySelectorAll('.repo-count');
 
-const counts = document.querySelectorAll('.repo-count');
+const FULL_NAME = document.querySelector('.full-name');
 
-const fullName = document.querySelector('.full-name');
+const PROFILE_BIO = document.querySelector('.about');
 
-const nickName = document.querySelector('.nickname');
+const REPO_LIST = document.getElementById('list-of-repos');
 
-const profileBio = document.querySelector('.about');
+const PROFILE_STATUS_TEXT = document.querySelectorAll('.profile-status-text');
 
-const repoList = document.getElementById('list-of-repos');
+const STATUS_ICON = document.querySelectorAll('.profile-status-icon');
+
+const NEW_REPO_BTN = document.getElementById('new-repo-btn');
+
+const NEW_REPO_DROPDOWN = document.querySelector('.new-repo-dropdown');
+
+const HEADER_PROFILE_BTN = document.getElementById('header-profile-btn');
+
+const HEADER_PROFILE_DROPDOWN = document.querySelector(
+  '.header-profile-dropdown'
+);
 
 fetch('https://api.github.com/graphql', {
   method: 'POST',
@@ -44,6 +52,10 @@ fetch('https://api.github.com/graphql', {
       user(login: "dayojiboye") {
         name
         avatarUrl
+        status {
+          emojiHTML
+          message
+        }
         login
         bio
         repositories(last: $number_of_repos, orderBy: {field: PUSHED_AT, direction: ASC}) {
@@ -73,26 +85,39 @@ fetch('https://api.github.com/graphql', {
   .then((res) => {
     const { data } = res;
     // console.log(data);
-    images.forEach((img) => {
+    IMAGES.forEach((img) => {
       img.src = data.user.avatarUrl;
       img.alt = '@' + data.user.login;
     });
 
-    navbarProfileName.textContent = data.user.login;
-    fullName.textContent = data.user.name;
-    nickName.textContent = data.user.login;
-    profileBio.textContent = data.user.bio;
-    tabUser.textContent = data.user.login;
-    
-    counts.forEach((count) => {
+    FULL_NAME.textContent = data.user.name;
+    PROFILE_BIO.textContent = data.user.bio;
+
+    GIT_USER_NAME.forEach((el) => (el.textContent = data.user.login));
+
+    PROFILE_STATUS_TEXT.forEach(
+      (el) =>
+        (el.textContent = data.status ? data.status.message : 'Set status')
+    );
+
+    STATUS_ICON.forEach(
+      (el) =>
+        (el.innerHTML = data.status
+          ? data.status.emojiHTML
+          : `<iconify-icon
+    data-icon="octicon:smiley-16"
+    ></iconify-icon> `)
+    );
+
+    COUNTS.forEach((count) => {
       count.textContent = data.user.repositories.totalCount;
     });
 
-    profileStatus.style.display = 'block';
+    data ? (PROFILE_STATUS.style.display = 'block') : 'none';
 
     data.user.repositories.nodes.reverse().forEach((repo) => {
-      const repoListItem = document.createElement('li');
-      repoListItem.innerHTML = `
+      const REPO_LIST_ITEM = document.createElement('li');
+      REPO_LIST_ITEM.innerHTML = `
     <div class="repo-info">
     <div class="info">
       <div class="repo-name">
@@ -143,7 +168,7 @@ fetch('https://api.github.com/graphql', {
   </div>
     `;
 
-      repoList.appendChild(repoListItem);
+      REPO_LIST.appendChild(REPO_LIST_ITEM);
     });
   })
   .catch((err) => {
@@ -154,11 +179,11 @@ const isInViewport = (element) => {
   let observer = new IntersectionObserver(
     function (entries) {
       if (entries[0].isIntersecting === false) {
-        tabImage.style.opacity = 1;
-        profileName.style.opacity = 0;
+        TAB_IMAGE.style.opacity = 1;
+        PROFILE_NAME.style.opacity = 0;
       } else {
-        tabImage.style.opacity = 0;
-        profileName.style.opacity = 1;
+        TAB_IMAGE.style.opacity = 0;
+        PROFILE_NAME.style.opacity = 1;
       }
     },
     { threshold: [0] }
@@ -167,7 +192,7 @@ const isInViewport = (element) => {
   observer.observe(element);
 };
 
-hamburger.addEventListener('click', (e) => {
+HAMBURGER.addEventListener('click', (e) => {
   let isExpanded = e.currentTarget.getAttribute('aria-expanded');
   if (isExpanded === 'true') {
     isExpanded = 'false';
@@ -175,10 +200,42 @@ hamburger.addEventListener('click', (e) => {
     isExpanded = 'true';
   }
   e.currentTarget.setAttribute('aria-expanded', isExpanded);
-  navItems.classList.toggle('show');
-  main.classList.toggle('push');
+  NAV_ITEMS.classList.toggle('show');
+  MAIN.classList.toggle('push');
 });
 
 window.addEventListener('scroll', () => {
-  isInViewport(profileAvatar);
+  isInViewport(PROFILE_AVATAR);
+});
+
+NEW_REPO_BTN.addEventListener('click', (e) => {
+  e.stopPropagation();
+  HEADER_PROFILE_DROPDOWN.classList.remove('show');
+  NEW_REPO_DROPDOWN.classList.toggle('show');
+});
+
+NEW_REPO_DROPDOWN.querySelector('.new-repo-drop-menu').addEventListener(
+  'click',
+  (e) => {
+    e.stopPropagation();
+    NEW_REPO_DROPDOWN.classList.add('show');
+  }
+);
+
+HEADER_PROFILE_BTN.addEventListener('click', (e) => {
+  e.stopPropagation();
+  NEW_REPO_DROPDOWN.classList.remove('show');
+  HEADER_PROFILE_DROPDOWN.classList.toggle('show');
+});
+
+HEADER_PROFILE_DROPDOWN.querySelector(
+  '.header-profile-dropdown-menu'
+).addEventListener('click', (e) => {
+  e.stopPropagation();
+  HEADER_PROFILE_DROPDOWN.classList.add('show');
+});
+
+window.addEventListener('click', () => {
+  NEW_REPO_DROPDOWN.classList.remove('show');
+  HEADER_PROFILE_DROPDOWN.classList.remove('show');
 });

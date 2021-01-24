@@ -8,6 +8,7 @@
     padding: 1rem 0;
 
     > input {
+      background: white;
       width: $full;
       display: block;
       padding: 0.3rem 0.72rem;
@@ -18,9 +19,17 @@
       color: $black;
       outline: none;
       appearance: none;
+      outline-offset: -2px;
+      box-shadow: $boxShadowInset;
 
       &::placeholder {
         font-size: 0.89rem;
+      }
+
+      &:focus {
+        border: 1px solid $linkPrimary;
+        box-shadow: $boxShadowFocus;
+        outline: none;
       }
     }
   }
@@ -47,7 +56,7 @@
           justify-content: space-between;
 
           .info {
-            width: auto;
+            flex: 1;
 
             .repo-name {
               h3 {
@@ -69,7 +78,8 @@
               margin-top: 0.5rem;
 
               p {
-                width: 80%;
+                width: 70%;
+                max-width: 500px;
                 margin: 0;
                 color: $secondary;
                 font-size: 0.875rem;
@@ -113,14 +123,14 @@
 
               .repo-time {
                 margin-left: 1rem;
-              }
 
-              .repo-relative-time {
-                margin-left: 0.2rem;
-                white-space: nowrap;
-                font-size: 0.75rem;
-                color: $secondary;
-                display: inline-block;
+                .repo-relative-time {
+                  margin-left: 0.2rem;
+                  white-space: nowrap;
+                  font-size: 0.75rem;
+                  color: $secondary;
+                  display: inline-block;
+                }
               }
             }
           }
@@ -181,9 +191,15 @@
       padding: 0 0.5rem 0 1rem;
 
       .repo-info {
-        .repo-rate,
-        .repo-forks {
-          display: none !important;
+        .repo-time {
+          display: flex;
+          width: 100px;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          .repo-relative-time {
+            margin: 0 !important;
+          }
         }
       }
     }

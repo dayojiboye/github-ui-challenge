@@ -38,7 +38,7 @@ header {
       }
     }
 
-    ul {
+    > ul {
       list-style-type: none;
       display: flex;
       align-items: center;
@@ -48,6 +48,10 @@ header {
 
       li {
         margin-right: 1rem;
+
+        &.settings-mobile {
+          display: none;
+        }
 
         input {
           background: url('../assets/icons/search-key-slash.svg');
@@ -60,9 +64,30 @@ header {
           border-radius: $borderRadius;
           font-family: inherit;
           font-size: 1rem;
-          color: $white;
+          color: $black;
           outline: none;
           appearance: none;
+          outline-offset: -2px;
+          transition: all 0.2s linear;
+
+          &::-webkit-search-decoration,
+          &::-webkit-search-cancel-button,
+          &::-webkit-search-results-button,
+          &::-webkit-search-results-decoration {
+            display: none;
+          }
+
+          &:focus {
+            width: 472px;
+            background: $white;
+            border: 1px solid $linkPrimary;
+            box-shadow: $boxShadowFocus;
+            outline: none;
+
+            &::placeholder {
+              color: $black;
+            }
+          }
 
           &::placeholder {
             color: #bdbec0;
@@ -94,55 +119,106 @@ header {
 
     .nav-end {
       display: flex;
-      align-items: center;
+      // align-items: center;
       margin-left: auto;
 
       .notification {
-        margin-right: 0.85rem;
+        margin-right: 0.9rem;
         color: $whiteSmoke;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
           color: $fade;
         }
-
-        [data-icon='octicon:bell-16'] {
-          vertical-align: middle;
-        }
       }
 
       .new-repo {
-        margin-right: 0.85rem;
+        margin-right: 1rem;
+        position: relative;
 
         button {
+          width: $full;
           background: transparent;
           border: 0;
           padding: 0;
           color: $whiteSmoke;
           cursor: pointer;
           outline: none;
+          display: flex;
+          align-items: center;
 
-          &:hover {
+          &:hover,
+          &:focus {
             color: $fade;
           }
 
           [data-icon='octicon:plus-24'] {
             font-size: 1.3rem;
-            vertical-align: middle;
+            margin-right: 0.2rem;
+          }
+        }
+
+        .new-repo-dropdown {
+          position: absolute;
+          width: 160px;
+          background: $white;
+          box-shadow: $boxShadow;
+          border: 1px solid $fade;
+          z-index: 234;
+          border-radius: $borderRadius;
+          top: 25px;
+          right: 0;
+          display: none;
+
+          &.show {
+            display: block;
+          }
+
+          .new-repo-drop-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0.4rem 0;
+
+            > li {
+              width: $full;
+
+              > a {
+                background: transparent;
+                width: $full;
+                display: block;
+                padding: 0.3rem 1rem;
+                font-size: 0.875rem;
+                color: $black;
+
+                &:hover {
+                  background: $linkPrimary;
+                  color: $white;
+                }
+              }
+            }
           }
         }
       }
 
       .header-profile {
+        position: relative;
+
         button {
+          width: $full;
           background: transparent;
           border: 0;
           padding: 0;
           color: $whiteSmoke;
           cursor: pointer;
           outline: none;
+          display: flex;
+          align-items: center;
 
-          &:hover {
+          &:hover,
+          &:focus {
             color: $fade;
           }
 
@@ -150,7 +226,111 @@ header {
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            vertical-align: middle;
+            margin-right: 0.3rem;
+          }
+        }
+
+        .header-profile-dropdown {
+          position: absolute;
+          width: 180px;
+          background: $white;
+          box-shadow: $boxShadow;
+          border: 1px solid $fade;
+          z-index: 234;
+          border-radius: $borderRadius;
+          top: 25px;
+          right: 0;
+          display: none;
+
+          &.show {
+            display: block;
+          }
+
+          .header-profile-dropdown-menu {
+            width: $full;
+
+            > div {
+              border-top: 1px solid $borderFade;
+
+              &:first-child {
+                border-top: none;
+              }
+            }
+
+            .signed-in-as {
+              > a {
+                padding: 0.6rem 1rem;
+
+                .header-profile-username {
+                  font-weight: 500;
+                }
+              }
+            }
+
+            .header-profile-link {
+              width: $full;
+              display: block;
+              padding: 0.3rem 1rem;
+              font-size: 0.875rem;
+              color: $black;
+              background: transparent;
+            }
+
+            .header-profile-status {
+              width: $full;
+              padding: 0.4rem 1rem;
+
+              > button {
+                background: $white;
+                padding: 0.5rem;
+                width: $full;
+                border: 1px solid $borderFade;
+                border-radius: $borderRadius;
+                text-align: left;
+                font-size: 1rem;
+                font-family: inherit;
+                color: $secondary;
+                outline: none;
+                cursor: pointer;
+
+                &:hover {
+                  color: $linkPrimary;
+                }
+
+                .header-profile-status-icon {
+                  display: flex;
+                }
+
+                .header-profile-status-text {
+                  font-size: 0.75rem;
+                  margin-left: 0.45rem;
+                }
+              }
+            }
+
+            .header-profile-links-top {
+              width: $full;
+              padding: 0.4rem 0;
+
+              > a {
+                &:hover {
+                  background: $linkPrimary;
+                  color: $white;
+                }
+              }
+            }
+
+            .header-profile-links-bottom {
+              width: $full;
+              padding: 0.4rem 0 0.3rem;
+
+              > a {
+                &:hover {
+                  background: $linkPrimary;
+                  color: $white;
+                }
+              }
+            }
           }
         }
       }
@@ -160,7 +340,6 @@ header {
         width: 0;
         height: 0;
         color: inherit;
-        vertical-align: middle;
         content: '';
         border-top-style: solid;
         border-top-width: 4px;
@@ -214,6 +393,10 @@ header {
           border-bottom: 1px solid #444d56;
           padding: 0.5rem 0;
 
+          &.settings-mobile {
+            display: block;
+          }
+
           > a {
             display: block;
           }
@@ -228,6 +411,10 @@ header {
 
           input {
             width: $full;
+
+            &:focus {
+              width: $full;
+            }
           }
 
           &.dashboard-nav-item,
@@ -303,6 +490,22 @@ header {
 
             .word {
               display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 954px) and (min-width: 768px) {
+  header {
+    nav {
+      ul {
+        li {
+          > input {
+            &:focus {
+              width: 258px;
             }
           }
         }

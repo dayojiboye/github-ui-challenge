@@ -53,8 +53,13 @@
           <li>
             <a href="/">Explore</a>
           </li>
+          <li class="settings-mobile">
+            <a href="/">Settings</a>
+          </li>
           <li class="profile-nav-item">
-            <a href="/"><img src="" alt="" /> <span></span></a>
+            <a href="/"
+              ><img src="" alt="" /> <span class="git-user-login-name"></span
+            ></a>
           </li>
           <li class="sign-out">
             <button>
@@ -70,17 +75,74 @@
           </a>
 
           <div class="new-repo">
-            <button>
+            <button id="new-repo-btn">
               <iconify-icon data-icon="octicon:plus-24"></iconify-icon>
               <span class="caret-down"></span>
             </button>
+            <div class="new-repo-dropdown">
+              <ul class="new-repo-drop-menu">
+                <li>
+                  <a href="/">New repository</a>
+                </li>
+                <li>
+                  <a href="/">Import repository</a>
+                </li>
+                <li>
+                  <a href="/">New gist</a>
+                </li>
+                <li>
+                  <a href="/">New organization</a>
+                </li>
+                <li>
+                  <a href="/">New project</a>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div class="header-profile">
-            <button>
+            <button id="header-profile-btn">
               <img src="" alt="" />
               <span class="caret-down"></span>
             </button>
+            <div class="header-profile-dropdown">
+              <div class="header-profile-dropdown-menu">
+                <div class="signed-in-as">
+                  <a href="/" class="header-profile-link">
+                    <span class="signed-in-as-nick">
+                      Signed in as
+                      <span
+                        class="header-profile-username git-user-login-name"
+                      ></span></span
+                  ></a>
+                </div>
+                <div class="header-profile-status">
+                  <button>
+                    <span
+                      class="header-profile-status-icon profile-status-icon"
+                    >
+                    </span>
+                    <span
+                      class="header-profile-status-text profile-status-text"
+                    ></span>
+                  </button>
+                </div>
+                <div class="header-profile-links-top">
+                  <a href="/" class="header-profile-link">Your profile</a>
+                  <a href="/" class="header-profile-link">Your repositories</a>
+                  <a href="/" class="header-profile-link">Your projects</a>
+                  <a href="/" class="header-profile-link">Your stars</a>
+                  <a href="/" class="header-profile-link">Your gists</a>
+                </div>
+                <div class="header-profile-links-bottom">
+                  <a href="/" class="header-profile-link">Upgrade</a>
+                  <a href="/" class="header-profile-link">Feature preview</a>
+                  <a href="/" class="header-profile-link">Help</a>
+                  <a href="/" class="header-profile-link">Settings</a>
+                  <a href="/" class="header-profile-link">Sign out</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -91,7 +153,7 @@
         <div class="tab-wrapper">
           <div class="tab-image">
             <img src="" alt="" />
-            <span class="tab-user"></span>
+            <span class="tab-user git-user-login-name"></span>
           </div>
 
           <div class="tab-menu">
@@ -138,7 +200,10 @@
 
                 <div class="profile-status">
                   <button>
-                    <iconify-icon data-icon="octicon:smiley-16"></iconify-icon>
+                    <div class="btn-inner-wrap">
+                      <span class="status-icon profile-status-icon"> </span>
+                      <span class="status-text profile-status-text"></span>
+                    </div>
                   </button>
                 </div>
               </div>
@@ -146,18 +211,15 @@
               <div class="profile-name">
                 <h1>
                   <span class="full-name"></span>
-                  <span class="nickname"></span>
+                  <span class="nickname git-user-login-name"></span>
                 </h1>
               </div>
             </div>
 
             <div class="mobile-profile-status">
               <button>
-                <iconify-icon
-                  data-icon="octicon:smiley-16"
-                  class="icon"
-                ></iconify-icon>
-                <span>Set status</span>
+                <span class="mobile-status-icon profile-status-icon"> </span>
+                <span class="mobile-status-text profile-status-text"></span>
               </button>
             </div>
 

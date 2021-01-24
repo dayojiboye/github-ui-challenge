@@ -38,7 +38,7 @@ header nav .git-logo a [data-icon='octicon:mark-github-16'] {
   vertical-align: middle;
 }
 
-header nav ul {
+header nav > ul {
   list-style-type: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,11 +51,15 @@ header nav ul {
   margin-left: 1rem;
 }
 
-header nav ul li {
+header nav > ul li {
   margin-right: 1rem;
 }
 
-header nav ul li input {
+header nav > ul li.settings-mobile {
+  display: none;
+}
+
+header nav > ul li input {
   background: url("../assets/icons/search-key-slash.svg");
   background-size: 19px;
   background-repeat: no-repeat;
@@ -66,48 +70,80 @@ header nav ul li input {
   border-radius: 6px;
   font-family: inherit;
   font-size: 1rem;
-  color: white;
+  color: #24292e;
   outline: none;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  outline-offset: -2px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
-header nav ul li input::-webkit-input-placeholder {
-  color: #bdbec0;
-  font-size: 0.89rem;
-}
-
-header nav ul li input:-ms-input-placeholder {
-  color: #bdbec0;
-  font-size: 0.89rem;
-}
-
-header nav ul li input::-ms-input-placeholder {
-  color: #bdbec0;
-  font-size: 0.89rem;
-}
-
-header nav ul li input::placeholder {
-  color: #bdbec0;
-  font-size: 0.89rem;
-}
-
-header nav ul li.dashboard-nav-item, header nav ul li.profile-nav-item, header nav ul li.sign-out {
+header nav > ul li input::-webkit-search-decoration, header nav > ul li input::-webkit-search-cancel-button, header nav > ul li input::-webkit-search-results-button, header nav > ul li input::-webkit-search-results-decoration {
   display: none;
 }
 
-header nav ul li > a {
+header nav > ul li input:focus {
+  width: 472px;
+  background: white;
+  border: 1px solid #0366d6;
+  -webkit-box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+          box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+  outline: none;
+}
+
+header nav > ul li input:focus::-webkit-input-placeholder {
+  color: #24292e;
+}
+
+header nav > ul li input:focus:-ms-input-placeholder {
+  color: #24292e;
+}
+
+header nav > ul li input:focus::-ms-input-placeholder {
+  color: #24292e;
+}
+
+header nav > ul li input:focus::placeholder {
+  color: #24292e;
+}
+
+header nav > ul li input::-webkit-input-placeholder {
+  color: #bdbec0;
+  font-size: 0.89rem;
+}
+
+header nav > ul li input:-ms-input-placeholder {
+  color: #bdbec0;
+  font-size: 0.89rem;
+}
+
+header nav > ul li input::-ms-input-placeholder {
+  color: #bdbec0;
+  font-size: 0.89rem;
+}
+
+header nav > ul li input::placeholder {
+  color: #bdbec0;
+  font-size: 0.89rem;
+}
+
+header nav > ul li.dashboard-nav-item, header nav > ul li.profile-nav-item, header nav > ul li.sign-out {
+  display: none;
+}
+
+header nav > ul li > a {
   color: white;
   font-size: 0.9rem;
   font-weight: 500;
 }
 
-header nav ul li > a:hover {
+header nav > ul li > a:hover {
   color: #ccc;
 }
 
-header nav ul li > a .letter-s {
+header nav > ul li > a .letter-s {
   display: none;
 }
 
@@ -115,58 +151,121 @@ header nav .nav-end {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin-left: auto;
 }
 
 header nav .nav-end .notification {
-  margin-right: 0.85rem;
+  margin-right: 0.9rem;
   color: whitesmoke;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header nav .nav-end .notification:hover {
   color: #ccc;
 }
 
-header nav .nav-end .notification [data-icon='octicon:bell-16'] {
-  vertical-align: middle;
-}
-
 header nav .nav-end .new-repo {
-  margin-right: 0.85rem;
+  margin-right: 1rem;
+  position: relative;
 }
 
 header nav .nav-end .new-repo button {
+  width: 100%;
   background: transparent;
   border: 0;
   padding: 0;
   color: whitesmoke;
   cursor: pointer;
   outline: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-header nav .nav-end .new-repo button:hover {
+header nav .nav-end .new-repo button:hover, header nav .nav-end .new-repo button:focus {
   color: #ccc;
 }
 
 header nav .nav-end .new-repo button [data-icon='octicon:plus-24'] {
   font-size: 1.3rem;
-  vertical-align: middle;
+  margin-right: 0.2rem;
+}
+
+header nav .nav-end .new-repo .new-repo-dropdown {
+  position: absolute;
+  width: 160px;
+  background: white;
+  -webkit-box-shadow: rgba(77, 77, 77, 0.1) 0px 0px 20px;
+          box-shadow: rgba(77, 77, 77, 0.1) 0px 0px 20px;
+  border: 1px solid #ccc;
+  z-index: 234;
+  border-radius: 6px;
+  top: 25px;
+  right: 0;
+  display: none;
+}
+
+header nav .nav-end .new-repo .new-repo-dropdown.show {
+  display: block;
+}
+
+header nav .nav-end .new-repo .new-repo-dropdown .new-repo-drop-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.4rem 0;
+}
+
+header nav .nav-end .new-repo .new-repo-dropdown .new-repo-drop-menu > li {
+  width: 100%;
+}
+
+header nav .nav-end .new-repo .new-repo-dropdown .new-repo-drop-menu > li > a {
+  background: transparent;
+  width: 100%;
+  display: block;
+  padding: 0.3rem 1rem;
+  font-size: 0.875rem;
+  color: #24292e;
+}
+
+header nav .nav-end .new-repo .new-repo-dropdown .new-repo-drop-menu > li > a:hover {
+  background: #0366d6;
+  color: white;
+}
+
+header nav .nav-end .header-profile {
+  position: relative;
 }
 
 header nav .nav-end .header-profile button {
+  width: 100%;
   background: transparent;
   border: 0;
   padding: 0;
   color: whitesmoke;
   cursor: pointer;
   outline: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-header nav .nav-end .header-profile button:hover {
+header nav .nav-end .header-profile button:hover, header nav .nav-end .header-profile button:focus {
   color: #ccc;
 }
 
@@ -174,7 +273,108 @@ header nav .nav-end .header-profile button > img {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown {
+  position: absolute;
+  width: 180px;
+  background: white;
+  -webkit-box-shadow: rgba(77, 77, 77, 0.1) 0px 0px 20px;
+          box-shadow: rgba(77, 77, 77, 0.1) 0px 0px 20px;
+  border: 1px solid #ccc;
+  z-index: 234;
+  border-radius: 6px;
+  top: 25px;
+  right: 0;
+  display: none;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown.show {
+  display: block;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu {
+  width: 100%;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu > div {
+  border-top: 1px solid #eaecef;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu > div:first-child {
+  border-top: none;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .signed-in-as > a {
+  padding: 0.6rem 1rem;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .signed-in-as > a .header-profile-username {
+  font-weight: 500;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .header-profile-link {
+  width: 100%;
+  display: block;
+  padding: 0.3rem 1rem;
+  font-size: 0.875rem;
+  color: #24292e;
+  background: transparent;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .header-profile-status {
+  width: 100%;
+  padding: 0.4rem 1rem;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .header-profile-status > button {
+  background: white;
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid #eaecef;
+  border-radius: 6px;
+  text-align: left;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #586069;
+  outline: none;
+  cursor: pointer;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .header-profile-status > button:hover {
+  color: #0366d6;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .header-profile-status > button .header-profile-status-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .header-profile-status > button .header-profile-status-text {
+  font-size: 0.75rem;
+  margin-left: 0.45rem;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .header-profile-links-top {
+  width: 100%;
+  padding: 0.4rem 0;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .header-profile-links-top > a:hover {
+  background: #0366d6;
+  color: white;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .header-profile-links-bottom {
+  width: 100%;
+  padding: 0.4rem 0 0.3rem;
+}
+
+header nav .nav-end .header-profile .header-profile-dropdown .header-profile-dropdown-menu .header-profile-links-bottom > a:hover {
+  background: #0366d6;
+  color: white;
 }
 
 header nav .nav-end .caret-down {
@@ -182,7 +382,6 @@ header nav .nav-end .caret-down {
   width: 0;
   height: 0;
   color: inherit;
-  vertical-align: middle;
   content: '';
   border-top-style: solid;
   border-top-width: 4px;
@@ -240,6 +439,9 @@ header nav .nav-end .caret-down {
     border-bottom: 1px solid #444d56;
     padding: 0.5rem 0;
   }
+  header nav ul li.settings-mobile {
+    display: block;
+  }
   header nav ul li > a {
     display: block;
   }
@@ -250,6 +452,9 @@ header nav .nav-end .caret-down {
     border-bottom: 0;
   }
   header nav ul li input {
+    width: 100%;
+  }
+  header nav ul li input:focus {
     width: 100%;
   }
   header nav ul li.dashboard-nav-item, header nav ul li.profile-nav-item, header nav ul li.sign-out {
@@ -308,6 +513,12 @@ header nav .nav-end .caret-down {
   }
   header nav ul li > a .word {
     display: none;
+  }
+}
+
+@media (max-width: 954px) and (min-width: 768px) {
+  header nav ul li > input:focus {
+    width: 258px;
   }
 }
 
@@ -425,7 +636,7 @@ header nav .nav-end .caret-down {
   display: none;
   max-width: 100%;
   background: white;
-  margin-top: 2rem;
+  margin-top: 1rem;
   overflow-x: hidden;
   border-bottom: 1px solid #eaecef;
   position: -webkit-sticky;
@@ -534,20 +745,57 @@ header nav .nav-end .caret-down {
 
 .profile-column .profile .profile-info .profile-avatar .profile-status {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 10%;
+  left: 97%;
   z-index: 130;
-  margin: 0 0 2.2rem -2.5rem;
+  margin: 0 0 0 -2.5rem;
   display: none;
 }
 
 .profile-column .profile .profile-info .profile-avatar .profile-status button {
   background: white;
   padding: 0;
-  width: 37px;
-  height: 37px;
+  max-width: 40px;
+  height: 40px;
   border: 1px solid #eaecef;
-  border-radius: 50%;
+  border-radius: 100vh;
+  overflow: hidden;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.profile-column .profile .profile-info .profile-avatar .profile-status button .btn-inner-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  color: #586069;
+}
+
+.profile-column .profile .profile-info .profile-avatar .profile-status button .btn-inner-wrap:hover {
+  color: #0366d6;
+}
+
+.profile-column .profile .profile-info .profile-avatar .profile-status button:hover {
+  max-width: initial;
+  -webkit-box-shadow: rgba(77, 77, 77, 0.1) 0px 0px 20px;
+          box-shadow: rgba(77, 77, 77, 0.1) 0px 0px 20px;
+}
+
+.profile-column .profile .profile-info .profile-avatar .profile-status button:hover .status-text {
+  opacity: 1;
+  margin-right: 13px;
+}
+
+.profile-column .profile .profile-info .profile-avatar .profile-status button .status-icon {
+  width: 37px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -557,14 +805,12 @@ header nav .nav-end .caret-down {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: 1rem;
-  color: #586069;
-  outline: none;
-  cursor: pointer;
 }
 
-.profile-column .profile .profile-info .profile-avatar .profile-status button:hover {
-  color: #0366d6;
+.profile-column .profile .profile-info .profile-avatar .profile-status button .status-text {
+  opacity: 0;
+  white-space: nowrap;
+  font-size: 0.75rem;
 }
 
 .profile-column .profile .profile-info .profile-name {
@@ -593,11 +839,13 @@ header nav .nav-end .caret-down {
   font-size: 1.25rem;
   color: #586069;
   line-height: 1;
+  font-weight: 400;
 }
 
 .profile-column .profile .mobile-profile-status {
   display: none;
   margin: 1rem 0 0.7rem;
+  width: 100%;
 }
 
 .profile-column .profile .mobile-profile-status > button {
@@ -610,6 +858,12 @@ header nav .nav-end .caret-down {
   font-size: 1rem;
   font-family: inherit;
   color: #586069;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   outline: none;
   cursor: pointer;
 }
@@ -618,14 +872,15 @@ header nav .nav-end .caret-down {
   color: #0366d6;
 }
 
-.profile-column .profile .mobile-profile-status > button > .icon {
-  vertical-align: middle;
+.profile-column .profile .mobile-profile-status > button .mobile-status-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.profile-column .profile .mobile-profile-status > button > span {
+.profile-column .profile .mobile-profile-status > button .mobile-status-text {
   font-size: 0.75rem;
   margin-left: 0.45rem;
-  vertical-align: middle;
 }
 
 .profile-column .profile .profile-bio {
@@ -662,7 +917,7 @@ header nav .nav-end .caret-down {
   }
   .profile-column .profile .profile-info .profile-avatar {
     max-width: 15vw;
-    min-width: 10px;
+    min-width: 50px;
     z-index: 0;
     margin-bottom: 0;
   }
@@ -696,6 +951,7 @@ header nav .nav-end .caret-down {
 }
 
 .repos .search-repo > input {
+  background: white;
   width: 100%;
   display: block;
   padding: 0.3rem 0.72rem;
@@ -708,6 +964,9 @@ header nav .nav-end .caret-down {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  outline-offset: -2px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(225, 228, 232, 0.2);
+          box-shadow: inset 0 1px 0 rgba(225, 228, 232, 0.2);
 }
 
 .repos .search-repo > input::-webkit-input-placeholder {
@@ -724,6 +983,13 @@ header nav .nav-end .caret-down {
 
 .repos .search-repo > input::placeholder {
   font-size: 0.89rem;
+}
+
+.repos .search-repo > input:focus {
+  border: 1px solid #0366d6;
+  -webkit-box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+          box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+  outline: none;
 }
 
 .repos .repos-list {
@@ -758,7 +1024,9 @@ header nav .nav-end .caret-down {
 }
 
 .repos .repos-list ul li .repo-info .info {
-  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .repos .repos-list ul li .repo-info .info .repo-name h3 {
@@ -780,7 +1048,8 @@ header nav .nav-end .caret-down {
 }
 
 .repos .repos-list ul li .repo-info .info .repo-desc p {
-  width: 80%;
+  width: 70%;
+  max-width: 500px;
   margin: 0;
   color: #586069;
   font-size: 0.875rem;
@@ -832,7 +1101,7 @@ header nav .nav-end .caret-down {
   margin-left: 1rem;
 }
 
-.repos .repos-list ul li .repo-info .info .info-footer .repo-relative-time {
+.repos .repos-list ul li .repo-info .info .info-footer .repo-time .repo-relative-time {
   margin-left: 0.2rem;
   white-space: nowrap;
   font-size: 0.75rem;
@@ -892,9 +1161,19 @@ header nav .nav-end .caret-down {
   .repos .repos-list {
     padding: 0 0.5rem 0 1rem;
   }
-  .repos .repos-list .repo-info .repo-rate,
-  .repos .repos-list .repo-info .repo-forks {
-    display: none !important;
+  .repos .repos-list .repo-info .repo-time {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .repos .repos-list .repo-info .repo-time .repo-relative-time {
+    margin: 0 !important;
   }
 }
 
@@ -945,7 +1224,7 @@ main > .wrapper {
 
 @media (max-width: 767px) {
   main.push {
-    margin-top: 338px;
+    margin-top: 375px;
   }
   main > .wrapper {
     -webkit-box-orient: vertical;
