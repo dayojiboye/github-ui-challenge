@@ -235,7 +235,7 @@ HEADER_PROFILE_DROPDOWN.querySelector(
   HEADER_PROFILE_DROPDOWN.classList.add('show');
 });
 
-window.addEventListener('click', () => {
+document.body.addEventListener('click', () => {
   NEW_REPO_DROPDOWN.classList.remove('show');
   HEADER_PROFILE_DROPDOWN.classList.remove('show');
 });
