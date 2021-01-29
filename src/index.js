@@ -216,9 +216,9 @@ NEW_REPO_BTN.addEventListener('click', (e) => {
 
 NEW_REPO_DROPDOWN.querySelector('.new-repo-drop-menu').addEventListener(
   'click',
-  (e) => {
+  function (e) {
     e.stopPropagation();
-    NEW_REPO_DROPDOWN.classList.add('show');
+    this.parentElement.classList.add('show');
   }
 );
 
@@ -230,9 +230,9 @@ HEADER_PROFILE_BTN.addEventListener('click', (e) => {
 
 HEADER_PROFILE_DROPDOWN.querySelector(
   '.header-profile-dropdown-menu'
-).addEventListener('click', (e) => {
+).addEventListener('click', function (e) {
   e.stopPropagation();
-  HEADER_PROFILE_DROPDOWN.classList.add('show');
+  this.parentElement.classList.add('show');
 });
 
 document.body.addEventListener('click', () => {
